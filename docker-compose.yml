@@ -1,13 +1,13 @@
 version: '3'
 services:
   app:
-    container_name: cryptoservice
+    container_name: coinbasecryptoservice
     build:
       context: .
       args:
-      - ARCHIVE_NAME=crypto-service-portal
+      - ARCHIVE_NAME=coinbase-crypto-service-portal
       - APP_ENVIRONMENT=dev
-    image: cryptoservice:latest
+    image: coinbasecryptoservice:latest
     depends_on:
     - db
     ports:
@@ -20,7 +20,7 @@ services:
     -  DB_PASSWORD=aathifSana
 
   db:
-    container_name: cryptodatabase
+    container_name: coinbasecryptodatabase
     image: 'postgres:10'
     environment:
     - POSTGRES_USER=aathifSana

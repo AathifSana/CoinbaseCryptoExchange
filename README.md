@@ -1,2 +1,0 @@
-# CoinbaseCryptoExchange
-IIT MSc CW

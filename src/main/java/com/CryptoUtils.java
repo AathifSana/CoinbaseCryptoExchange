@@ -6,6 +6,7 @@ import java.util.HashMap;
 public class CryptoUtils {
 
 
+
     public static final HashMap<String, Double> cryptoPriceMap = new HashMap<>();
 
     public static void initializeCryptoPrices(){

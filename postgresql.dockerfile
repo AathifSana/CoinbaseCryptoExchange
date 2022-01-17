@@ -1,4 +1,0 @@
-FROM library/postgres
-ENV POSTGRES_USER aathifSana
-ENV POSTGRES_PASSWORD aathifSana
-ENV POSTGRES_DB CoinbaseCrypto

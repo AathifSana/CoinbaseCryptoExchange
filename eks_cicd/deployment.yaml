@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: coinbasecrypto
+    app.kubernetes.io/instance: coinbasecrypto-instance
+    app.kubernetes.io/version: '1.0.0'
+    app.kubernetes.io/managed-by: kubectl
+  name: coinbasecrypto-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coinbasecrypto
+  template:
+    metadata:
+      labels:
+        app: coinbasecrypto
+    spec:
+      containers:
+        - image: 099589627952.dkr.ecr.us-west-2.amazonaws.com/coinbasecrypto:latest
+          imagePullPolicy: Always
+          name: coinbasecrypto
+          ports:
+            - containerPort: 8080

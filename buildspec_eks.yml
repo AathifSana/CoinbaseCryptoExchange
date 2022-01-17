@@ -13,6 +13,10 @@ phases:
       - source ~/.bashrc
       - echo 'Check kubectl version'
       - kubectl version --short --client
+      - echo Installing maven
+      - wget https://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+      - sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+      - yum install -y apache-maven
       - chmod +x eks_cicd/prereqs.sh
       - sh eks_cicd/prereqs.sh
 
@@ -32,6 +36,8 @@ phases:
 
   build:
     commands:
+      - echo Building maven
+      - mvn clean package -DskipTests
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build --cache-from $REPOSITORY_URI:$IMAGE_TAG -t $IMAGE_REPO_NAME:$IMAGE_TAG .

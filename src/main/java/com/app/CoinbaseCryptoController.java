@@ -23,6 +23,11 @@ public class CoinbaseCryptoController {
         return cryptoService.getCoinbaseCryptos();
     }
 
+    @GetMapping(path = "/health")
+    public String healthCheck() {
+        return "Health Check Works!";
+    }
+
     @PostMapping
     public void addCoinbaseCrypto(
             @RequestParam(required = true) String ownerName,
@@ -54,3 +59,4 @@ public class CoinbaseCryptoController {
     }
 
 }
+

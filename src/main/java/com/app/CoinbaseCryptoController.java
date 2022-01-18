@@ -25,7 +25,7 @@ public class CoinbaseCryptoController {
 
     @GetMapping(path = "/health")
     public String healthCheck() {
-        return "Health Check Works!";
+        return "Health Check Works!!!";
     }
 
     @PostMapping
